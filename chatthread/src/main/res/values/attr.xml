@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MessageThread">
+        <attr name="mt_elevation" format="dimension"/>
+
+        <attr name="mt_received_color" format="color" />
+        <attr name="mt_sent_color" format="color" />
+        <attr name="mt_sent_text_color" format="color" />
+        <attr name="mt_received_text_color" format="color" />
+
+        <attr name="mt_date_color" format="color" />
+        <attr name="mt_date_format" format="string" />
+        <attr name="mt_date_format_minutes" format="boolean" />
+        <attr name="mt_date_format_days" format="boolean" />
+
+        <attr name="mt_display_outgoing_avatars" format="boolean" />
+        <attr name="mt_display_incoming_avatars" format="boolean" />
+        <attr name="mt_avatar_scale" format="enum">
+            <enum name="small" value="40" />
+            <enum name="medium" value="50" />
+            <enum name="large" value="60" />
+        </attr>
+        <attr name="mt_avatar_shape" format="enum">
+            <enum name="circle" value="0" />
+            <enum name="square" value="1" />
+            <enum name="round_square" value="2" />
+        </attr>
+
+        <attr name="mt_message_radius_top_from" format="dimension" />
+        <attr name="mt_message_radius_top_to" format="dimension" />
+        <attr name="mt_message_radius_bottom_from" format="dimension" />
+        <attr name="mt_message_radius_bottom_to" format="dimension" />
+
+        <attr name="mt_image_message_padding" format="dimension" />
+        <attr name="mt_text_message_padding" format="dimension" />
+
+        <attr name="mt_preview_message_padding" format="dimension" />
+        <attr name="mt_progress_bar_color" format="color" />
+
+        <!-- TODO: Link Colors -->
+        <attr name="mt_sent_link_color" format="color" />
+        <attr name="mt_received_link_color" format="color" />
+    </declare-styleable>
+</resources>

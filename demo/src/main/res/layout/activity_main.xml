@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/thread"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/top_header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        >
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/threadImage"
+            app:riv_corner_radius="20dp"
+            android:src="@drawable/us" />
+        <TextView
+            android:id="@+id/threadImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="12dp"
+            android:text="Nathan"
+            android:textColor="#ffffff" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <tk.nathanf.chatthread.components.MessageThread
+        android:id="@+id/thread"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#18181B"
+        app:layout_constraintTop_toBottomOf="@id/top_header"
+        app:layout_constraintBottom_toTopOf="@id/inputText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp"
+        app:mt_sent_color="#79A4F9"
+        app:mt_sent_text_color="#18181B"
+        app:mt_received_color="#2E3133"
+        app:mt_received_text_color="#FFFFFF"
+        app:mt_date_color="#888F95"
+        app:mt_display_outgoing_avatars="false"
+        app:mt_message_radius_top_from="25dp"
+        app:mt_message_radius_top_to="25dp"
+        app:mt_message_radius_bottom_from="3dp"
+        app:mt_message_radius_bottom_to="25dp"
+        app:mt_elevation="0dp"
+        app:mt_avatar_scale="small"
+        app:mt_avatar_shape="circle"
+        />
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/input_background"
+        android:hint="Message..."
+        android:textColorHint="#6A6A6A"
+        android:textColor="#ffffff"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintRight_toLeftOf="@id/send_button"
+        app:layout_constraintEnd_toStartOf="@id/send_button" />
+
+    <Button
+        android:id="@+id/send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/send_button"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Send"
+        android:textColor="#ffffff"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
