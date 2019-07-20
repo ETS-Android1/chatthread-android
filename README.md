@@ -41,7 +41,7 @@ Chat Thread gives you the base you need to start developing your own Chat applic
     ```
     dependencies {
         ...
-        implementation 'com.github.nathan-fiscaletti:chatthread-android:0.1.1'
+        implementation 'com.github.nathan-fiscaletti:chatthread-android:v0.1.1'
     }
     ```
 
