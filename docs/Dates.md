@@ -12,12 +12,7 @@ class MyDateFormatter extends MessageDateFormatter {
 
 . . .
 
-messageThread.setDateFormatter(
-    new MyDateFormatter(
-        "MMM d, yyyy 'at' h:mm aa",
-        MessageDateFormatter.FLAG_ALL
-    )
-);
+messageThread.setDateFormatter(MyDateFormatter.class);
 ```
 
 Within the `format(Date date)` method, you can use the following methods:

@@ -16,6 +16,8 @@ import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.lang.reflect.InvocationTargetException;
+
 import tk.nathanf.chatthread.R;
 import tk.nathanf.chatthread.components.dates.DefaultMessageDateFormatter;
 import tk.nathanf.chatthread.components.dates.MessageDateFormatter;
@@ -266,10 +268,14 @@ public final class MessageThread extends ConstraintLayout {
     /**
      * Set the Date Formatter for this Message Thread.
      *
-     * @param formatter The Date Formatter.
+     * @param formatter The Date Formatter class.
      */
-    public void setDateFormatter(MessageDateFormatter formatter) {
-        this.parameters.dateFormatter = formatter;
+    public void setDateFormatter(Class<? extends MessageDateFormatter> formatter) {
+        try {
+            this.parameters.dateFormatter = formatter.getDeclaredConstructor(String.class, int.class).newInstance(
+                this.parameters.dateFormatter.getDefaultFormat(), this.parameters.dateFormatter.getFlags()
+            );
+        } catch (Exception ignored) {}
     }
 
     /**
