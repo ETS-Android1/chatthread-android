@@ -1,4 +1,4 @@
-# Managing Authors
+# Managing Adapters
 
 There are two main types of Adapters that can be used with a Message Thread.
 
