@@ -27,6 +27,8 @@ Chat Thread gives you the base you need to start developing your own Chat applic
 
 ## How can I get started?
 
+### Add the library to your application
+
 1. In your **project level** `build.gradle` add the repository
 
     ```gradle
@@ -48,3 +50,17 @@ Chat Thread gives you the base you need to start developing your own Chat applic
     ```
 
 Check out the [demo project](./demo) and the [documentation](./docs) for information on how to get started!
+
+## Demo Project
+
+You can find a demo project that implements the library in [demo](./demo).
+
+Configure this application to one of the three available demo conversations by setting the `DEMO_NUM` value to `DEMO1`, `DEMO2`, or `DEMO3`.
+
+```java
+private int DEMO_NUM = DEMO1;
+```
+
+See [MainActivity.java](./demo/src/main/java/tk/nathanf/mttest/MainActivity.java)
+
+
