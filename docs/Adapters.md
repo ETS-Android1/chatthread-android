@@ -25,7 +25,7 @@ To add a message to your List Adapter, use one of the following.
 
 > Note: These can only be used with regular List Adapters.
 
-1. `addToBottom(message(s), scroll)`
+1. **`addToBottom(message(s), scroll)`**
     ```java
     // If you set this to true, the list will automatically scroll to the bottom.
     boolean shouldScroll = true;
@@ -36,7 +36,7 @@ To add a message to your List Adapter, use one of the following.
     );
     ```
 
-2. `addToTop(messages, reverse)`
+2. **`addToTop(messages, reverse)`**
     ```java
     // Set this to true if you want the messages added in reverse order.
     boolean reverse = false;

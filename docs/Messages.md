@@ -12,12 +12,12 @@ The Text Message is the most basic type of Message. It simply stores a String of
 
 There are two options available for creating a new TextMessage.
 
-1. Parse a String with the `Message.parse()` method.
+1. **Parse a String with the `Message.parse()` method.**
     ```java
     Message[] messages = Message.parse(context, author, "Hey, what's up!");
     ```
     > Note: When using this method, if the string contains a URL the PreviewMessage type will be returned instead.
-2. Instantiate the Message and set it's Text.
+2. **Instantiate the Message and set it's Text.**
     ```java
     TextMessage message = new TextMessage(context, author);
     message.setSentOn(new Date());
@@ -45,12 +45,12 @@ Image Messages speak for themselves. They give you a very easy to use interface 
 
 There are two main ways in which to create a new Image Message.
 
-1. Parse a String with the `Message.parse()` method.
+1. **Parse a String with the `Message.parse()` method.**
     ```java
     Message[] messages = Message.parse(context, author, "Check out this picture: https://website.com/image.png");
     ```
     When using this method, if the text sent to `Message.parse()` contains a URL that IS an image, the URl for the image will be extracted and an Image message will be returned for that. If the message also contains text along side the URl for the image, all of the text will be returned as a TextMessage and the URL will be parsed into an Image Message.
-2. Instantiate the Message and set it's Image.
+2. **Instantiate the Message and set it's Image.**
     ```java
     ImageMessage message = new ImageMessage(context, author);
     message.setImage(someBitmap);
@@ -99,13 +99,13 @@ Preview Messages supply an easy to use system for generating Previews of URLs, o
 
 There are three main ways you can create a Preview Message.
 
-1. Parse a String with the `Message.parse()` method.
+1. **Parse a String with the `Message.parse()` method.**
     ```java
     Message[] messages = Message.parse(context, author, "Hey, check out my site. https://nathanf.tk/");
     ```
     Any message that is sent to the `Message.parse()` method that contains a URL that is not an image will be parsed as a Preview Message by default. When the message is parsed, the largest image found on the page will be used for the preview.
 
-2. Instantiate the Message and set it's content.
+2. **Instantiate the Message and set it's content.**
     ```java
     PreviewMessage message = new PreviewMessage(context, author);
     message.setTitle("My Preview");
