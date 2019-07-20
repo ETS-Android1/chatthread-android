@@ -441,7 +441,7 @@ public class MessageThreadListAdapter extends BaseAdapter {
         dateContainer.setTextColor(params.getDateColor());
         dateContainer.setText(params.getDateFormatter().format(message.getSentOn()));
         dateContainer.setTypeface(params.getDateFont());
-        dateContainer.setTextSize(params.getDateFontSizePx());
+        dateContainer.setTextSize(params.getDateFontSizeSp());
         if (visibleDates.contains(position) || (
             position == this.getCount() - 1 &&
             params.getDateFormatter().getMinutesAgo(message.getSentOn()) > 1
@@ -455,7 +455,7 @@ public class MessageThreadListAdapter extends BaseAdapter {
         TextView dateHeader = view.findViewById(R.id.dateHeader);
         if (params.isDateHeaderEnabled()) {
             dateHeader.setTypeface(params.getDateHeaderFont());
-            dateHeader.setTextSize(params.getDateHeaderFontSizePx());
+            dateHeader.setTextSize(params.getDateHeaderFontSizeSp());
             dateHeader.setTextColor(params.getDateHeaderColor());
             Message lastMessage = getItem(position - 1);
             if (lastMessage == null) {

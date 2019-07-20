@@ -90,7 +90,7 @@ public final class TextMessage extends Message {
     public void bindView(MessageParameters parameters, View view) {
         TextView textView = (TextView)view;
         textView.setTypeface(parameters.getMessageFont());
-        textView.setTextSize(parameters.getMessageFontSizePx());
+        textView.setTextSize(parameters.getMessageFontSizeSp());
         textView.setText(this.message);
         Linkify.addLinks(textView, Linkify.ALL);
     }
