@@ -27,7 +27,7 @@ Chat Thread gives you the base you need to start developing your own Chat applic
 
 1. In your **project level** `build.gradle` add the repository
 
-    ```
+    ```gradle
     allprojects {
         repositories {
             ...
@@ -38,7 +38,7 @@ Chat Thread gives you the base you need to start developing your own Chat applic
     
 2. In your **module level** `build.gradle` add the library
 
-    ```
+    ```gradle
     dependencies {
         ...
         implementation 'com.github.nathan-fiscaletti:chatthread-android:v0.1.1'
