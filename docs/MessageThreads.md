@@ -21,6 +21,13 @@ To add a Message Thread to your View, you have a few options.
    MessageThread messageThread = new MessageThread(context);
     ```
     
+## Scrolling the Message Thread
+
+You can very easily scroll the Message Thread to the bottom at any time using
+```java
+messageThread.scrollToBottom();
+```
+    
 ## Configuring a Message Thread.
 
 You can configure a message thread with the following attributes (There are matching setters/getters in Java for all attributes)

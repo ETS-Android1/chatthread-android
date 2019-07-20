@@ -7,7 +7,7 @@ There are two main types of Adapters that can be used with a Message Thread.
 
 ## List Adapters
 
-To create a List Adapter simple instantiate it wrapping your list.
+To create a List Adapter, simply instantiate it wrapping your list.
 
 ```java
 MessageThreadListAdapter adapter = new MessageThreadListAdapter(new ArrayList<Message>() {{
@@ -40,7 +40,7 @@ To add a message to your List Adapter, use one of the following.
     ```java
     // Set this to true if you want the messages added in reverse order.
     boolean reverse = false;
-    messageThread.getAdapter().addToBottom(
+    messageThread.getAdapter().addToTop(
         new Message[] {
                 Message.parse(ThisActivity.this, author, "Hey, what's up!")[0],
                 Message.parse(ThisActivity.this, author, "Not much!")[0],
