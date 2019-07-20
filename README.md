@@ -2,6 +2,8 @@
 
 Chat Thread gives you the base you need to start developing your own Chat application.
 
+> Inspired by https://github.com/stfalcon-studio/ChatKit
+
 [![](https://jitpack.io/v/nathan-fiscaletti/chatthread-android.svg)](https://jitpack.io/#nathan-fiscaletti/chatthread-android)
 [![](https://jitpack.io/v/nathan-fiscaletti/chatthread-android/month.svg)](https://jitpack.io/#nathan-fiscaletti/chatthread-android)
 [![GitHub license](https://img.shields.io/github/license/nathan-fiscaletti/chatthread-android.svg?color=blue)](https://github.com/nathan-fiscaletti/chatthread-android/blob/master/LICENSE)
