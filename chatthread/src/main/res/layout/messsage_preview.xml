@@ -52,7 +52,6 @@
 
     <com.joooonho.SelectableRoundedImageView
         android:id="@+id/previewImage"
-        android:src="@drawable/permission_top"
         android:layout_width="0dp"
         android:layout_height="120dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -2,10 +2,12 @@
 
 Chat Thread gives you the base you need to start developing your own Chat application.
 
-> Please note: This library is still in an early development stage. Until I am comfortable with how it performs, it will not be listed on any android package managers.
+[![](https://jitpack.io/v/nathan-fiscaletti/chatthread-android.svg)](https://jitpack.io/#nathan-fiscaletti/chatthread-android)
+[![](https://jitpack.io/v/nathan-fiscaletti/chatthread-android/month.svg)](https://jitpack.io/#nathan-fiscaletti/chatthread-android)
+[![GitHub license](https://img.shields.io/github/license/nathan-fiscaletti/chatthread-android.svg?color=blue)](https://github.com/nathan-fiscaletti/chatthread-android/blob/master/LICENSE)
 
 <p align="center">
-<img src="screenshots/Preview.png">
+    <img src="screenshots/Preview.png">
 </p>
 
 ## What's included?
@@ -22,5 +24,25 @@ Chat Thread gives you the base you need to start developing your own Chat applic
 * Much, much more!
 
 ## How can I get started?
+
+1. In your **project level** `build.gradle` add the repository
+
+    ```
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+    ```
+    
+2. In your **module level** `build.gradle` add the library
+
+    ```
+    dependencies {
+        ...
+        implementation 'com.github.nathan-fiscaletti:chatthread-android:0.1.1'
+    }
+    ```
 
 Check out the [demo project](./demo) and the [documentation](./docs) for information on how to get started!
