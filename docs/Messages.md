@@ -6,6 +6,8 @@ The easiest way to parse a Message is to use the `Message.parse()` method. This 
 
 > Note: Keep in mind that `Message.parse()` returns an Array of messages as some Message types, when parsed, can return multiple Messages of multiple types.
 
+---
+
 ### Text Messages
 
 The Text Message is the most basic type of Message. It simply stores a String of Text to be displayed. Any phone numbers or URLs will be clickable.
@@ -38,6 +40,7 @@ messageThread.setTextMessagePadding(Measure.dpToPx(16, context));
 
 > Note: Text Message padding is used by default by any Message Type that does not override the `getPadding()` method of the Message class.
 
+---
 
 ### Image Messages
 
@@ -92,6 +95,7 @@ Once the Image is tapped, the following four will be populated and your Activity
 |`PreviewImage.currentlyDisplayedImageAuthor`|`Author`|The author of the message.|
 |`PreviewImage.currentlyDisplayedImageDate`|`Date`|The date at which the message was sent.|
 
+---
 
 ### Preview Messages
 
