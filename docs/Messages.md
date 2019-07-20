@@ -15,7 +15,7 @@ By default this will override two methods.
 * `createView` -- Use this method to create a View for this Message type. Do not populate the View here, as this View will be re-used for all Messages of the same Message Type.
 * `bindView` -- This method will be used to populate a View created using createView. 
 
-```
+```java
 public class CustomMessage extends Message {
     @Override
     public View createView(MessageParameters parameters, ViewGroup parent) {
