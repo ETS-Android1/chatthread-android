@@ -9,6 +9,15 @@ class MyDateFormatter extends MessageDateFormatter {
         return "";
     }
 }
+
+. . .
+
+messageThread.setDateFormatter(
+    new MyDateFormatter(
+        "MMM d, yyyy 'at' h:mm aa",
+        MessageDateFormatter.FLAG_ALL
+    )
+);
 ```
 
 Within the `format(Date date)` method, you can use the following methods:
