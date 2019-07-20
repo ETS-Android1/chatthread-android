@@ -13,13 +13,13 @@ class MyDateFormatter extends MessageDateFormatter {
 
 Within the `format(Date date)` method, you can use the following methods:
 
-* `int getFlags()` -- Retrieve the flags for this Date Formatter. This are bit flags containing these three values: `FLAG_MINUTES` and/or `FLAG_DAYS`, `FLAG_ALL`, or `0`.
-* `boolean isToday(Date)` -- Check if the given date was Today.
-* `long getMinutesAgo(Date)` -- Check how many minutes ago the given Date was.
-* `long getDaysAgo(Date)` -- Check how many days ago the given Date was.
-* `String getDefaultFormat()` -- Get the default format for dates.
-
-See: [Message Thread Attributes](./MessageThreads.md)
+|Method|Description|
+|---|---|
+|`getFlags()`|Retrieve the flags for this Date Formatter. This are bit flags containing these three values: `FLAG_MINUTES` and/or `FLAG_DAYS`, `FLAG_ALL`, or `0`.|
+|`isToday(Date)`|Check if the given date was Today.|
+|`getMinutesAgo(Date)`|Check how many minutes ago the given Date was.|
+|`getDaysAgo(Date)`|Check how many days ago the given Date was.|
+|`getDefaultFormat()`|Get the default format for dates.|
 
 ## Format
 
@@ -52,3 +52,6 @@ You can parse these flags in your custom implementation like so:
 ```java
 boolean shouldUseMinutes = (getFlags() & MessageDateFormatter.FLAG_MINUTES) == MessageDateFormatter.FLAG_MINUTES;
 ```
+
+---
+See: [Message Thread Attributes](./MessageThreads.md) for attributes used to configure date formats and flags.
