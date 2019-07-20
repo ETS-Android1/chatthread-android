@@ -30,7 +30,7 @@ public class CustomMessage extends Message {
 ```
 
 After you have created your custom Message type, you need to make sure you register it at run time using
-```
+```java
 MessageTypes.register(CustomMessage.class);
 ```
 > Note: If you choose to add a custom constructor to your Message Type, make sure you also add an empty constructor. This is important for internal parsing.
