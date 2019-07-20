@@ -41,6 +41,12 @@ You can configure a message thread with the following attributes (There are matc
 |`app:mt_sent_text_color`|`#000000`|The text color for an OUTGOING message.|
 |`app:mt_date_color`|`#FFFFFF`|The text color for a date displayed below a message.|
 |`app:mt_date_format`|`MMM d, yyyy 'at' h:mm aa`|The default format for a date.|
+|`app:mt_message_text_size`|`14sp`|The default font size for all messages.|
+|`app:mt_message_font_family`|`Typeface.DEFAULT`|The default font for all messages.|
+|`app:mt_date_text_size`|The value of `message_text_size`.|The font size for dates.|
+|`app:mt_date_font_family`|The value of `message_font_family`.|The font for dates.|
+|`app:mt_date_header_text_size`|The value of `date_text_size`.|The font size for date headers.|
+|`app:mt_date_header_font_family`|The value of `date_font_family`.|The font for date headers.|
 |`app:mt_date_format_minutes`|`true`|Whether or not to display minute values for a date.|
 |`app:mt_date_format_days`|`true`|Whether or not to display day values for a date.|
 |`app:mt_date_header_enabled`|`true`|Whether or not to show date headers.|

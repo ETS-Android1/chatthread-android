@@ -356,6 +356,13 @@ public final class PreviewMessage extends Message implements View.OnClickListene
         TextView urlText = view.findViewById(R.id.urlText);
         ConstraintLayout loadingLayout = view.findViewById(R.id.loadingLayout);
 
+        titleText.setTypeface(parameters.getMessageFont());
+        titleText.setTextSize(parameters.getMessageFontSizePx());
+        descriptionText.setTypeface(parameters.getMessageFont());
+        descriptionText.setTextSize(parameters.getMessageFontSizePx());
+        urlText.setTypeface(parameters.getMessageFont());
+        urlText.setTextSize(parameters.getMessageFontSizePx());
+
         if (this.loaded) {
             previewImage.setVisibility(View.VISIBLE);
             titleText.setVisibility(View.VISIBLE);

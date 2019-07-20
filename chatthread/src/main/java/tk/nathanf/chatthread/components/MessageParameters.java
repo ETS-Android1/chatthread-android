@@ -1,9 +1,11 @@
 package tk.nathanf.chatthread.components;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Build;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 
@@ -88,6 +90,12 @@ public final class MessageParameters {
     boolean dateHeaderEnabled;
     int dateHeaderColor;
     int dateHeaderSeparationMinutes;
+    Typeface messageFont;
+    Typeface dateFont;
+    Typeface dateHeaderFont;
+    float messageFontSize;
+    float dateFontSize;
+    float dateHeaderFontSize;
 
     /**
      * Create the new Message Parameters.
@@ -115,6 +123,12 @@ public final class MessageParameters {
             boolean dateHeaderEnabled,
             int dateHeaderColor,
             int dateHeaderSeparationMinutes,
+            Typeface messageFont,
+            Typeface dateFont,
+            Typeface dateHeaderFont,
+            float messageFontSize,
+            float dateFontSize,
+            float dateHeaderFontSize,
             MessageDateFormatter dateFormatter
     ) {
         this.context = context;
@@ -140,6 +154,12 @@ public final class MessageParameters {
         this.dateHeaderEnabled = dateHeaderEnabled;
         this.dateHeaderColor = dateHeaderColor;
         this.dateHeaderSeparationMinutes = dateHeaderSeparationMinutes;
+        this.messageFont = messageFont;
+        this.dateFont = dateFont;
+        this.dateHeaderFont = dateHeaderFont;
+        this.messageFontSize = messageFontSize;
+        this.dateFontSize = dateFontSize;
+        this.dateHeaderFontSize = dateHeaderFontSize;
     }
 
     /**
@@ -351,5 +371,47 @@ public final class MessageParameters {
      */
     public int getDateHeaderSeparationMinutes() {
         return dateHeaderSeparationMinutes;
+    }
+
+    /**
+     * @return the default Typeface for messages.
+     */
+    public @NonNull Typeface getMessageFont() {
+        return messageFont == null ? Typeface.DEFAULT : messageFont;
+    }
+
+    /**
+     * @return the default Typeface for dates.
+     */
+    public @NonNull Typeface getDateFont() {
+        return dateFont == null ? getMessageFont() : dateFont;
+    }
+
+    /**
+     * @return the default Typeface for date headers.
+     */
+    public @NonNull Typeface getDateHeaderFont() {
+        return dateHeaderFont == null ? getDateFont() : dateHeaderFont;
+    }
+
+    /**
+     * @return The font size for message text.
+     */
+    public float getMessageFontSizeSp() {
+        return messageFontSize;
+    }
+
+    /**
+     * @return The font size for dates.
+     */
+    public float getDateFontSizeSp() {
+        return dateFontSize;
+    }
+
+    /**
+     * @return the font size for date headers.
+     */
+    public float getDateHeaderFontSizeSp() {
+        return dateHeaderFontSize;
     }
 }

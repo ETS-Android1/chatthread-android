@@ -3,6 +3,7 @@ package tk.nathanf.chatthread.components;
 import android.content.Context;
 import android.content.res.TypedArray;
 
+import android.graphics.Typeface;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -15,8 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import java.lang.reflect.InvocationTargetException;
 
 import tk.nathanf.chatthread.R;
 import tk.nathanf.chatthread.components.dates.DefaultMessageDateFormatter;
@@ -252,6 +251,40 @@ public final class MessageThread extends ConstraintLayout {
             10
         );
 
+        Typeface messageFont = null;
+        Typeface dateFont = null;
+        Typeface dateHeaderFont = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            messageFont = typedArray.getFont(
+                R.styleable.MessageThread_mt_message_font_family
+            );
+            dateFont = typedArray.getFont(
+                R.styleable.MessageThread_mt_date_font_family
+            );
+            dateHeaderFont = typedArray.getFont(
+                R.styleable.MessageThread_mt_date_header_font_family
+            );
+        }
+
+        float messageFontSize = typedArray.getDimension(
+            R.styleable.MessageThread_mt_message_text_size,
+            Measure.spToPx(14, getContext())
+        );
+
+        float dateFontSize = typedArray.getDimension(
+            R.styleable.MessageThread_mt_date_text_size,
+            messageFontSize
+        );
+
+        float dateHeaderFontSize = typedArray.getDimension(
+            R.styleable.MessageThread_mt_date_header_text_size,
+            dateFontSize
+        );
+
+        messageFontSize = Measure.pxToSp(messageFontSize, getContext());
+        dateFontSize = Measure.pxToSp(dateFontSize, getContext());
+        dateHeaderFontSize = Measure.pxToSp(dateHeaderFontSize, getContext());
+
         String dateFormat = typedArray.getString(
             R.styleable.MessageThread_mt_date_format
         );
@@ -277,7 +310,7 @@ public final class MessageThread extends ConstraintLayout {
             messageRadiusBottomTo, textMessagePadding, imageMessagePadding,
             previewMessagePadding, progressBarColor, elevation, avatarScale, avatarShape,
             displayIncomingAvatars, displayOutgoingAvatars, dateHeaderEnabled,
-            dateHeaderColor, dateHeaderSeparation, formatter
+            dateHeaderColor, dateHeaderSeparation, messageFont, dateFont, dateHeaderFont, messageFontSize, dateFontSize, dateHeaderFontSize, formatter
         );
     }
 
@@ -474,6 +507,60 @@ public final class MessageThread extends ConstraintLayout {
     }
 
     /**
+     * Sets the default font for all messages.
+     *
+     * @param font The font.
+     */
+    public void setMessageFont(Typeface font) {
+        this.parameters.messageFont = font;
+    }
+
+    /**
+     * Sets the default date font.
+     *
+     * @param font The font.
+     */
+    public void setDateFont(Typeface font) {
+        this.parameters.dateFont = font;
+    }
+
+    /**
+     * Sets the default font for date headers.
+     *
+     * @param font The font.
+     */
+    public void setDateHeaderFont(Typeface font) {
+        this.parameters.dateHeaderFont = font;
+    }
+
+    /**
+     * Sets the default font size for all messages.
+     *
+     * @param valueInSp The font size in SP.
+     */
+    public void setMessageFontSizeSp(float valueInSp) {
+        this.parameters.messageFontSize = valueInSp;
+    }
+
+    /**
+     * Sets the date font size in SP.
+     *
+     * @param valueInSp The font size in SP.
+     */
+    public void setDateFontSizeSp(float valueInSp) {
+        this.parameters.dateFontSize = valueInSp;
+    }
+
+    /**
+     * Sets the date header font size in SP.
+     *
+     * @param valueInSp The font size in SP.
+     */
+    public void setDateHeaderFontSizeSp(float valueInSp) {
+        this.parameters.dateHeaderFontSize = valueInSp;
+    }
+
+    /**
      * Retrieve the Text color for OUTGOING messages.
      *
      * @return The background color.
@@ -644,5 +731,47 @@ public final class MessageThread extends ConstraintLayout {
      */
     public int getDateHeaderSeparationMinutes() {
         return this.parameters.dateHeaderSeparationMinutes;
+    }
+
+    /**
+     * @return the default Typeface for messages.
+     */
+    public @NonNull Typeface getMessageFont() {
+        return this.parameters.getMessageFont();
+    }
+
+    /**
+     * @return the default Typeface for dates.
+     */
+    public @NonNull Typeface getDateFont() {
+        return this.parameters.getDateFont();
+    }
+
+    /**
+     * @return the default Typeface for date headers.
+     */
+    public @NonNull Typeface getDateHeaderFont() {
+        return this.parameters.getDateHeaderFont();
+    }
+
+    /**
+     * @return The font size for message text.
+     */
+    public float getMessageFontSizeSp() {
+        return this.parameters.getMessageFontSizeSp();
+    }
+
+    /**
+     * @return The font size for dates.
+     */
+    public float getDateFontSizeSp() {
+        return this.parameters.getDateFontSizeSp();
+    }
+
+    /**
+     * @return the font size for date headers.
+     */
+    public float getDateHeaderFontSizeSp() {
+        return this.parameters.getDateHeaderFontSizeSp();
     }
 }

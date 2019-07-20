@@ -138,7 +138,9 @@ You can create your own Message type by extending the Message class.
 By default this will override two methods.
 
 * `createView` -- Use this method to create a View for this Message type. Do not populate the View here, as this View will be re-used for all Messages of the same Message Type.
-* `bindView` -- This method will be used to populate a View created using createView. 
+* `bindView` -- This method will be used to populate a View created using createView.
+
+The `MessageParameters` objects stores information from your `MessageThread` object. Using this object you can access things such as `parameters.getAvatarShape()` or `parameters.getMessageFontSize()` which you can use to maintain fluidity between your view types and others used within the Message Thread. 
 
 ```java
 public class CustomMessage extends Message {

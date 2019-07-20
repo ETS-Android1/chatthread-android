@@ -5,7 +5,6 @@ import android.util.DisplayMetrics;
 
 /**
  * Utility class for measurements.
- * Taken from: https://stackoverflow.com/a/9563438/1720829
  */
 @SuppressWarnings("unused")
 public class Measure {
@@ -28,7 +27,7 @@ public class Measure {
     /**
      * This method converts device specific pixels to density independent pixels.
      *
-     * @param px A value in px (pixels) unit. Which we need to convert into db
+     * @param px A value in px (pixels) unit. Which we need to convert into dp
      * @param context Context to get resources and device specific display metrics
      *
      * @return A float value to represent dp equivalent to px value
@@ -38,6 +37,31 @@ public class Measure {
             (float) context.getResources().getDisplayMetrics().densityDpi /
                     DisplayMetrics.DENSITY_DEFAULT
         );
+    }
+
+    /**
+     * This method converts device specific pixels to scaled independent pixels.
+     *
+     * @param px A value in px (pixels) unit. Which we need to convert into dp
+     * @param context Context to get resources and device specific display metrics
+     *
+     * @return A float value to represent sp equivalent to px value
+     */
+    public static float pxToSp(float px, Context context) {
+        return px / context.getResources().getDisplayMetrics().scaledDensity;
+    }
+
+    /**
+     * This method converts sp unit to equivalent pixels, depending on device density.
+     *
+     * @param sp      A value in sp (scaled independent pixels) unit,
+     *                which we need to convert into pixels
+     * @param context Context to get resources and device specific display metrics
+     *
+     * @return        A float value to represent px equivalent to sp depending on device density.
+     */
+    public static float spToPx(float sp, Context context) {
+        return sp * context.getResources().getDisplayMetrics().scaledDensity;
     }
 
     /**

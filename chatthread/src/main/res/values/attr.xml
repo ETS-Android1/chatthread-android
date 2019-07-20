@@ -8,6 +8,13 @@
         <attr name="mt_sent_text_color" format="color" />
         <attr name="mt_received_text_color" format="color" />
 
+        <attr name="mt_message_text_size" format="dimension" />
+        <attr name="mt_message_font_family" format="reference" />
+        <attr name="mt_date_text_size" format="dimension" />
+        <attr name="mt_date_font_family" format="reference" />
+        <attr name="mt_date_header_text_size" format="dimension" />
+        <attr name="mt_date_header_font_family" format="reference" />
+
         <attr name="mt_date_color" format="color" />
         <attr name="mt_date_format" format="string" />
         <attr name="mt_date_format_minutes" format="boolean" />
@@ -40,9 +47,5 @@
 
         <attr name="mt_preview_message_padding" format="dimension" />
         <attr name="mt_progress_bar_color" format="color" />
-
-        <!-- TODO: Link Colors -->
-        <attr name="mt_sent_link_color" format="color" />
-        <attr name="mt_received_link_color" format="color" />
     </declare-styleable>
 </resources>
