@@ -62,7 +62,7 @@ public abstract class MessageDateFormatter {
      * @return True if it was today, otherwise false.
      */
     public boolean isToday(Date date) {
-        return this.getDaysAgo(date) <= 1;
+        return this.getDaysAgo(date) < 1;
     }
 
     /**
@@ -73,6 +73,17 @@ public abstract class MessageDateFormatter {
      */
     public long getMinutesAgo(Date date) {
         return TimeUnit.MILLISECONDS.toMinutes(new Date().getTime() - date.getTime());
+    }
+
+    /**
+     * Retrieve the number of minutes between two dates.
+     *
+     * @param first  The first Date.
+     * @param second The second Date.
+     * @return       The number of minutes between the two Dates.
+     */
+    public long getMinutesBetween(Date first, Date second) {
+        return Math.abs(TimeUnit.MILLISECONDS.toMinutes(first.getTime() - second.getTime()));
     }
 
     /**

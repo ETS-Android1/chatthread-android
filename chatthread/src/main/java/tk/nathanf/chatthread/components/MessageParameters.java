@@ -85,6 +85,9 @@ public final class MessageParameters {
     boolean displayOutgoingAvatars;
     boolean displayIncomingAvatars;
     MessageDateFormatter dateFormatter;
+    boolean dateHeaderEnabled;
+    int dateHeaderColor;
+    int dateHeaderSeparationMinutes;
 
     /**
      * Create the new Message Parameters.
@@ -109,6 +112,9 @@ public final class MessageParameters {
             int avatarShape,
             boolean displayIncomingAvatars,
             boolean displayOutgoingAvatars,
+            boolean dateHeaderEnabled,
+            int dateHeaderColor,
+            int dateHeaderSeparationMinutes,
             MessageDateFormatter dateFormatter
     ) {
         this.context = context;
@@ -131,6 +137,9 @@ public final class MessageParameters {
         this.avatarShape = avatarShape;
         this.displayIncomingAvatars = displayIncomingAvatars;
         this.displayOutgoingAvatars = displayOutgoingAvatars;
+        this.dateHeaderEnabled = dateHeaderEnabled;
+        this.dateHeaderColor = dateHeaderColor;
+        this.dateHeaderSeparationMinutes = dateHeaderSeparationMinutes;
     }
 
     /**
@@ -321,5 +330,26 @@ public final class MessageParameters {
      */
     public boolean shouldDisplayIncomingAvatars() {
         return displayIncomingAvatars;
+    }
+
+    /**
+     * @return true if the date header is enabled, false otherwise.
+     */
+    public boolean isDateHeaderEnabled() {
+        return dateHeaderEnabled;
+    }
+
+    /**
+     * @return The color for date headers.
+     */
+    public @ColorInt int getDateHeaderColor() {
+        return dateHeaderColor;
+    }
+
+    /**
+     * @return the number of minutes that can elapse before a new date header will be displayed.
+     */
+    public int getDateHeaderSeparationMinutes() {
+        return dateHeaderSeparationMinutes;
     }
 }

@@ -4,4 +4,4 @@
 * [Managing Authors](./Authors.md)
 * [Managing Adapters](./Adapters.md)
 * [Managing Messages](./Messages.md)
-* [Implementing a custom Date Formatter](./Dates.md)
+* [Managing Dates](./Dates.md)

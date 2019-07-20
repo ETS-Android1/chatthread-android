@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.lang.String;
 import java.lang.RuntimeException;
 import java.net.URL;
+import java.util.Date;
 
 import android.content.Context;
 import android.content.Intent;
@@ -283,10 +284,10 @@ public final class ImageMessage extends Message {
      * @param value   The value.
      *
      * @return The Messages.
-     * @see Message#parseMessage(Context, Author, String)
+     * @see Message#parseMessage(Context, Author, Date, String)
      */
     @Override
-    public Message[] parseMessage(Context context, Author author, String value) {
+    public Message[] parseMessage(Context context, Author author, Date sentOn, String value) {
         String[] words = value.split(" ");
         for (String word : words) {
             int end = value.indexOf(word) + word.length();
@@ -302,9 +303,11 @@ public final class ImageMessage extends Message {
                     if (! value.equals(word)) {
                         TextMessage textMessage = new TextMessage(context, author);
                         textMessage.setMessage(value);
+                        textMessage.setSentOn(sentOn);
                         ImageMessage imageMessage = new ImageMessage(context, author);
                         imageMessage.setName(Uri.parse(word).getLastPathSegment());
                         imageMessage.setImage(word);
+                        imageMessage.setSentOn(sentOn);
                         return new Message[] {
                                 textMessage, imageMessage
                         };
@@ -312,6 +315,7 @@ public final class ImageMessage extends Message {
                         ImageMessage imageMessage = new ImageMessage(context, author);
                         imageMessage.setName(Uri.parse(word).getLastPathSegment());
                         imageMessage.setImage(word);
+                        imageMessage.setSentOn(sentOn);
                         return new Message[] {
                             imageMessage
                         };

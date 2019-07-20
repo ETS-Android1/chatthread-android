@@ -8,4 +8,5 @@
     <color name="default_progress_bar_color">#ffffff</color>
     <color name="default_sent_link_color">@color/default_sent_text</color>
     <color name="default_received_link_color">@color/default_received_text</color>
+    <color name="default_date_header_color">#FFFFFF</color>
 </resources>

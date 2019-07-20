@@ -24,6 +24,7 @@ import java.lang.Class;
 /**
  * A representation of a Message to be displayed within a {@link MessageThread}.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public abstract class Message {
     /**
      * The source of a Message.
@@ -68,7 +69,7 @@ public abstract class Message {
      * DO NOT USE THIS TO INSTANTIATE THIS CLASS.
      *
      * @see Message#parse(Context, Author, String)
-     * @see Message#parseMessage(Context, Author, String)
+     * @see Message#parseMessage(Context, Author, Date, String)
      * @see Message#getParsePriority()
      * @see Message#isParsable(String)
      */
@@ -91,7 +92,6 @@ public abstract class Message {
      * @return The Author.
      * @see Author
      */
-    @SuppressWarnings("WeakerAccess")
     public final @NonNull Author getAuthor() {
         return this.author;
     }
@@ -180,7 +180,7 @@ public abstract class Message {
      *
      * <p>
      * Once the message type has been determined, we use the
-     * {@link Message#parseMessage(Context, Author, String)}
+     * {@link Message#parseMessage(Context, Author, Date, String)}
      * method to parse the Message out to an array of Messages.
      * </p><br>
      *
@@ -197,15 +197,64 @@ public abstract class Message {
      *
      * @param context The Context.
      * @param author  The Author.
+     * @param data    The Data.
+     *
+     * @return The messages
+     *
+     * @see Message#isParsable(String)
+     * @see Message#parseMessage(Context, Author, Date, String)
+     * @see Message#getParsePriority()
+     * @see Message#parse(Context, Author, Date, String)
+     */
+    public static Message[] parse(Context context, Author author, String data) {
+        return Message.parse(context, author, new Date(), data);
+    }
+
+    /**
+     * <p>
+     * Parse a group of Messages from a String.
+     * </p><br>
+     *
+     * <p>
+     * This will get a list of all Messages registered using {@link MessageTypes#register(Class)}
+     * and use their {@link Message#getParsePriority()} and {@link Message#isParsable(String)}
+     * methods to determine which MessageType should be used for the input data.
+     * </p><br>
+     *
+     * <p>
+     * If no suitable message type can be determined, the function will
+     * result in a {@link TextMessage} by default.
+     * </p><br>
+     *
+     * <p>
+     * Once the message type has been determined, we use the
+     * {@link Message#parseMessage(Context, Author, Date, String)}
+     * method to parse the Message out to an array of Messages.
+     * </p><br>
+     *
+     * <p>
+     * You can make your custom {@link Message} implementations work with this method by
+     * implementing the three main parse methods.
+     * </p><br>
+     *
+     *
+     * <p>
+     * This method returns multiple messages as some Message types can result in multiple Messages
+     * being returned, for an example see the {@link ImageMessage} implementation.
+     * </p>
+     *
+     * @param context The Context.
+     * @param author  The Author.
+     * @param sentOn  The Date on which this Message was sent.
      * @param data    The Date.
      *
      * @return        The Messages.
      *
      * @see Message#isParsable(String)
-     * @see Message#parseMessage(Context, Author, String)
+     * @see Message#parseMessage(Context, Author, Date, String)
      * @see Message#getParsePriority()
      */
-    public static Message[] parse(Context context, Author author, String data) {
+    public static Message[] parse(Context context, Author author, Date sentOn, String data) {
         Set<Class<? extends Message>> messageTypesSet = MessageTypes.getMessageTypes().keySet();
         List<Class<? extends Message>> messageTypesList = new LinkedList<>(messageTypesSet);
         Collections.sort(messageTypesList, new Comparator<Class<? extends Message>>() {
@@ -233,13 +282,14 @@ public abstract class Message {
             try {
                 Message m = messageTypeClass.newInstance();
                 if (m.isParsable(data)) {
-                    return m.parseMessage(context, author, data);
+                    return m.parseMessage(context, author, sentOn, data);
                 }
             } catch (Exception ignored) {}
         }
 
         TextMessage textMessage = new TextMessage(context, author);
         textMessage.setMessage(data);
+        textMessage.setSentOn(sentOn);
         return new Message[] { textMessage };
     }
 
@@ -326,11 +376,12 @@ public abstract class Message {
      *
      * @param context The context.
      * @param author  The Author.
+     * @param sentOn  The date on which the Message was sent.
      * @param value   The value.
      *
      * @return The Messages.
      */
-    public Message[] parseMessage(Context context, Author author, String value) {
+    public Message[] parseMessage(Context context, Author author, Date sentOn, String value) {
         return new Message[] {};
     }
 

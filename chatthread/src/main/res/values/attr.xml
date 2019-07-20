@@ -13,6 +13,10 @@
         <attr name="mt_date_format_minutes" format="boolean" />
         <attr name="mt_date_format_days" format="boolean" />
 
+        <attr name="mt_date_header_enabled" format="boolean" />
+        <attr name="mt_date_header_color" format="color" />
+        <attr name="mt_date_header_separation_minutes" format="integer" />
+
         <attr name="mt_display_outgoing_avatars" format="boolean" />
         <attr name="mt_display_incoming_avatars" format="boolean" />
         <attr name="mt_avatar_scale" format="enum">

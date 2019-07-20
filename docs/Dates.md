@@ -1,4 +1,18 @@
-# Implementing a custom Date Formatter
+# Managing Dates
+
+## Date Headers
+
+You can choose how you want date headers configured using the following attributes.
+
+These each have respective setters and getters on the MessageThread object.
+
+|Attribute|Default|Description|
+|---|---|---|
+|`app:mt_date_header_enabled`|`true`|Whether or not to show date headers.|
+|`app:mt_date_header_color`|`#FFFFFF`|The color for date header text.|
+|`app:mt_date_header_separation_minutes`|`10`|The number of minutes that need to elapse before a new date header is displayed.|
+
+## Implementing a custom Date Formatter
 
 If you don't wish to use the built in Date Formatter, you can opt to create your own.
 
@@ -25,7 +39,7 @@ Within the `format(Date date)` method, you can use the following methods:
 |`getDaysAgo(Date)`|Check how many days ago the given Date was.|
 |`getDefaultFormat()`|Get the default format for dates.|
 
-## Format
+### Format
 
 The format for the Date Formatter can either be set with an attribute or in code.
 
@@ -38,7 +52,7 @@ The format for the Date Formatter can either be set with an attribute or in code
     dateFormatter.setDefaultFormat("MMM d, yyyy 'at' h:mm aa");
     ```
 
-## Flags
+### Flags
 
 The flags for a formatter can be set either using the attributes or in code.
 

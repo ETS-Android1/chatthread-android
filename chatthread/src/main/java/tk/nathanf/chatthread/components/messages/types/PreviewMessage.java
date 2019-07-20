@@ -22,6 +22,7 @@ import android.widget.TextView;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
+import java.util.Date;
 import java.util.HashMap;
 import java.lang.RuntimeException;
 import java.lang.String;
@@ -476,10 +477,10 @@ public final class PreviewMessage extends Message implements View.OnClickListene
      * @param value   The value.
      *
      * @return The Messages.
-     * @see Message#parseMessage(Context, Author, String)
+     * @see Message#parseMessage(Context, Author, Date, String)
      */
     @Override
-    public Message[] parseMessage(Context context, Author author, String value) {
+    public Message[] parseMessage(Context context, Author author, Date sentOn, String value) {
         String[] words = value.split(" ");
         for (String word : words) {
             if (Patterns.WEB_URL.matcher(word).matches()) {
@@ -488,6 +489,7 @@ public final class PreviewMessage extends Message implements View.OnClickListene
                 message.setContent("Tap to open in browser");
                 message.setUrl(word);
                 message.setText(value);
+                message.setSentOn(sentOn);
                 message.loadAsync();
                 return new Message[]{message};
             }

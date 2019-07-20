@@ -43,6 +43,9 @@ You can configure a message thread with the following attributes (There are matc
 |`app:mt_date_format`|`MMM d, yyyy 'at' h:mm aa`|The default format for a date.|
 |`app:mt_date_format_minutes`|`true`|Whether or not to display minute values for a date.|
 |`app:mt_date_format_days`|`true`|Whether or not to display day values for a date.|
+|`app:mt_date_header_enabled`|`true`|Whether or not to show date headers.|
+|`app:mt_date_header_color`|`#FFFFFF`|The color for date header text.|
+|`app:mt_date_header_separation_minutes`|`10`|The number of minutes that need to elapse before a new date header is displayed.|
 |`app:mt_display_outgoing_avatars`|`false`|Whether or not to display OUTGOING avatars.|
 |`app:mt_display_incoming_avatars`|`false`|Whether or not to display INCOMING avatars.|
 |`app:mt_avatar_scale`|`medium`|The scale for avatars.|

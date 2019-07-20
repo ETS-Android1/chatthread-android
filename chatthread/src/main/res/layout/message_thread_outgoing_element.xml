@@ -8,6 +8,19 @@
     android:orientation="vertical"
     android:background="@android:color/transparent">
 
+    <TextView
+        android:id="@+id/dateHeader"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/message_container"
+        android:layout_marginBottom="8dp"
+        android:text="Wednesday at 11:00PM"
+        android:textSize="12sp"
+        android:gravity="center" />
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ownerImage"
         android:layout_width="40dp"
@@ -41,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintRight_toLeftOf="@id/ownerImage"
         app:layout_constraintEnd_toStartOf="@id/ownerImage"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/dateHeader">
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
         android:id="@+id/date"

@@ -61,6 +61,7 @@
         app:mt_received_color="#2E3133"
         app:mt_received_text_color="#FFFFFF"
         app:mt_date_color="#888F95"
+        app:mt_date_header_color="#888F95"
         app:mt_display_outgoing_avatars="false"
         app:mt_message_radius_top_from="25dp"
         app:mt_message_radius_top_to="25dp"

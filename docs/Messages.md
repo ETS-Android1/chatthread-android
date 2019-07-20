@@ -177,4 +177,4 @@ To include your own custom Message Type in the `parse()` method, you need to do 
 2. Override the following methods.
     * `int getParsePriority()` -- Retrieves the parse priority for this Message. The lower the number, the higher the priority.
     * `boolean isParsable(value)` -- Check if a string value CAN be parsed into this Message Type.
-    * `Message[] parseMessage(value)` -- Parse the value that has been validated using `isParsable` into this Message type.
+    * `Message[] parseMessage()` -- Parse the value that has been validated using `isParsable` into this Message type.

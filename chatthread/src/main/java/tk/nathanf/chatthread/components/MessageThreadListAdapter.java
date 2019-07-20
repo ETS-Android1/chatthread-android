@@ -260,7 +260,9 @@ public class MessageThreadListAdapter extends BaseAdapter {
         Message message = null;
 
         if (this.adapter == null && this.messages != null) {
-            message = this.messages.get(position);
+            try {
+                message = this.messages.get(position);
+            } catch (ArrayIndexOutOfBoundsException ignored) {}
         } else if (this.adapter != null && this.messages == null) {
             message = this.adapter.getMessage(position);
         }
@@ -438,10 +440,36 @@ public class MessageThreadListAdapter extends BaseAdapter {
         final TextView dateContainer = view.findViewById(R.id.date);
         dateContainer.setTextColor(params.getDateColor());
         dateContainer.setText(params.getDateFormatter().format(message.getSentOn()));
-        if (visibleDates.contains(position)) {
+        if (visibleDates.contains(position) || (
+            position == this.getCount() - 1 &&
+            params.getDateFormatter().getMinutesAgo(message.getSentOn()) > 1
+        )) {
             dateContainer.setVisibility(View.VISIBLE);
         } else {
             dateContainer.setVisibility(View.GONE);
+        }
+
+        // Configure the Date Header
+        TextView dateHeader = view.findViewById(R.id.dateHeader);
+        if (params.isDateHeaderEnabled()) {
+            dateHeader.setTextColor(params.getDateHeaderColor());
+            Message lastMessage = getItem(position - 1);
+            if (lastMessage == null) {
+                dateHeader.setVisibility(View.VISIBLE);
+                dateHeader.setText(params.getDateFormatter().format(message.getSentOn()));
+            } else {
+                long minutesBetween = params.getDateFormatter().getMinutesBetween(
+                        lastMessage.getSentOn(), message.getSentOn()
+                );
+                if (minutesBetween >= params.getDateHeaderSeparationMinutes()) {
+                    dateHeader.setVisibility(View.VISIBLE);
+                    dateHeader.setText(params.getDateFormatter().format(message.getSentOn()));
+                } else {
+                    dateHeader.setVisibility(View.GONE);
+                }
+            }
+        } else {
+            dateHeader.setVisibility(View.GONE);
         }
 
         // Set the OnClick Listener.

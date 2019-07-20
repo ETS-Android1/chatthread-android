@@ -237,6 +237,21 @@ public final class MessageThread extends ConstraintLayout {
             R.styleable.MessageThread_mt_date_format_days, true
         );
 
+        boolean dateHeaderEnabled = typedArray.getBoolean(
+            R.styleable.MessageThread_mt_date_header_enabled,
+            true
+        );
+
+        int dateHeaderColor = typedArray.getColor(
+            R.styleable.MessageThread_mt_date_header_color,
+            getContext().getResources().getColor(R.color.default_date_header_color)
+        );
+
+        int dateHeaderSeparation = typedArray.getInteger(
+            R.styleable.MessageThread_mt_date_header_separation_minutes,
+            10
+        );
+
         String dateFormat = typedArray.getString(
             R.styleable.MessageThread_mt_date_format
         );
@@ -261,7 +276,8 @@ public final class MessageThread extends ConstraintLayout {
             messageRadiusTopFrom, messageRadiusBottomFrom, messageRadiusTopTo,
             messageRadiusBottomTo, textMessagePadding, imageMessagePadding,
             previewMessagePadding, progressBarColor, elevation, avatarScale, avatarShape,
-            displayIncomingAvatars, displayOutgoingAvatars, formatter
+            displayIncomingAvatars, displayOutgoingAvatars, dateHeaderEnabled,
+            dateHeaderColor, dateHeaderSeparation, formatter
         );
     }
 
@@ -431,6 +447,33 @@ public final class MessageThread extends ConstraintLayout {
     }
 
     /**
+     * Sets the date header enabled flag.
+     *
+     * @param enabled Whether or not to display date headers.
+     */
+    public void setDateHeaderEnabled(boolean enabled) {
+        this.parameters.dateHeaderEnabled = enabled;
+    }
+
+    /**
+     * Sets the color for Date headers.
+     *
+     * @param color The color.
+     */
+    public void setDateHeaderColor(@ColorInt int color) {
+        this.parameters.dateHeaderColor = color;
+    }
+
+    /**
+     * Sets the number of minutes that can elapse before a new date header will be displayed.
+     *
+     * @param minutes The number of minutes.
+     */
+    public void setDateHeaderSeparationMinutes(int minutes) {
+        this.parameters.dateHeaderSeparationMinutes = minutes;
+    }
+
+    /**
      * Retrieve the Text color for OUTGOING messages.
      *
      * @return The background color.
@@ -580,5 +623,26 @@ public final class MessageThread extends ConstraintLayout {
      */
     public boolean shouldDisplayIncomingAvatars() {
         return this.parameters.displayIncomingAvatars;
+    }
+
+    /**
+     * @return true if the date header is enabled, false otherwise.
+     */
+    public boolean isDateHeaderEnabled() {
+        return this.parameters.dateHeaderEnabled;
+    }
+
+    /**
+     * @return The color for date headers.
+     */
+    public @ColorInt int getDateHeaderColor() {
+        return this.parameters.dateHeaderColor;
+    }
+
+    /**
+     * @return the number of minutes that can elapse before a new date header will be displayed.
+     */
+    public int getDateHeaderSeparationMinutes() {
+        return this.parameters.dateHeaderSeparationMinutes;
     }
 }
